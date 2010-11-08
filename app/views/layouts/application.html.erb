@@ -19,36 +19,10 @@
   </noscript>
   <div id="box">
 
-  <div id="login_modal" title="Anmeldevorgang" style="display:none;">
-
-    <% form_tag :action => "login" do %>
-    <table cellspacing="10">
-    <tr>
-    <td>Benutzername:</td>
-    <td><%= text_field_tag :name, params[:name], :size => 15 %></td>
-    </tr>
-    <tr>
-    <td>Passwort:</td>
-    <td><%= password_field_tag :password, params[:password], :size => 15 %></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td style="text-align: right;"><%= submit_tag "Login", :disable_with => "bitte warten..." %></td>
-    </tr>
-    </table>
-    <% end %>
+  
   </div>
 
   <div id="linksHeader">
-      <% if !session[:user_id] %>
-    <%= link_to "login", "/login", :id => "Link_Login" %> |
-
-    <% end %>
-    <% if session[:user_id] %>
-      <SPAN STYLE="font-size: 11px; "><strong>Benutzer:</strong> <%= session[:person] %></SPAN> |
-    <% end %>
-    <%= link_to 'Impressum', :controller => 'impressum', :action => 'index' %> |
-    <%= link_to 'Kontakt', :controller => 'kontakt', :action => 'index' %>
   </div>
 
    <div id="header">
@@ -57,38 +31,11 @@
    </div>
 
    <div id="navigation">
-      <div id="navigation_links">
-
-        <ul class="menu_horiz">
-          <li><a href="/" class="<%= @activeVar1 %>"><span>Verein</span></a></li>
-        <li><a href="/tennis/teams" class="<%= @activeVar2 %>"><span>Tennis</span></a></li>
-        <li><a href="/kontakt" class="<%= @activeVar3 %>"><span>Kontakt</span></a></li>
-      </ul>
-      </div>
    </div>
 
    <div id="content">
-
-    <div id="menu">
-
-    <%= yield :menu %>
-    <br/><br/>
-    <% if session[:user_id] %>
-    <ul id="menu_vert">
-        <li>-------------</li>
-        <li><%= link_to 'Adminbereich', :controller => 'admin', :action => 'index' %></li>
-              <li><%= link_to 'Logout', :controller => 'admin', :action => 'logout' %></li>
-    </ul>
-        <% end %>
-
-
-    </div>
-
-    <div id="contentarea">
       <br />      
       <%= yield %>
-  </div>
-
    </div>
 
 
