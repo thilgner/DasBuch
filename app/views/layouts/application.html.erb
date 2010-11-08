@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DASBUCH</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <noscript>
+    <div>
+      <table cellspacing="0" cellpadding="0" width="100%" style="text-align: center; background-color: #cf0513; color: white;">
+    <tbody>
+      <tr>      
+        <td style="width: 100%; font-size: 13px;">JavaScript ist nicht aktiviert. Bitte aktivieren Sie JavaScript in ihren Browsereinstellungen.</td>
+    </tr>
+    </tbody></table>
+    </div>
+  </noscript>
+  <div id="box">
+
+  <div id="login_modal" title="Anmeldevorgang" style="display:none;">
+
+    <% form_tag :action => "login" do %>
+    <table cellspacing="10">
+    <tr>
+    <td>Benutzername:</td>
+    <td><%= text_field_tag :name, params[:name], :size => 15 %></td>
+    </tr>
+    <tr>
+    <td>Passwort:</td>
+    <td><%= password_field_tag :password, params[:password], :size => 15 %></td>
+    </tr>
+    <tr>
+    <td></td>
+    <td style="text-align: right;"><%= submit_tag "Login", :disable_with => "bitte warten..." %></td>
+    </tr>
+    </table>
+    <% end %>
+  </div>
+
+  <div id="linksHeader">
+      <% if !session[:user_id] %>
+    <%= link_to "login", "/login", :id => "Link_Login" %> |
+
+    <% end %>
+    <% if session[:user_id] %>
+      <SPAN STYLE="font-size: 11px; "><strong>Benutzer:</strong> <%= session[:person] %></SPAN> |
+    <% end %>
+    <%= link_to 'Impressum', :controller => 'impressum', :action => 'index' %> |
+    <%= link_to 'Kontakt', :controller => 'kontakt', :action => 'index' %>
+  </div>
+
+   <div id="header">
+
+    <h1><a href="/" title="zur Startseite">Test</a></h1>
+   </div>
+
+   <div id="navigation">
+      <div id="navigation_links">
+
+        <ul class="menu_horiz">
+          <li><a href="/" class="<%= @activeVar1 %>"><span>Verein</span></a></li>
+        <li><a href="/tennis/teams" class="<%= @activeVar2 %>"><span>Tennis</span></a></li>
+        <li><a href="/kontakt" class="<%= @activeVar3 %>"><span>Kontakt</span></a></li>
+      </ul>
+      </div>
+   </div>
+
+   <div id="content">
+
+    <div id="menu">
+
+    <%= yield :menu %>
+    <br/><br/>
+    <% if session[:user_id] %>
+    <ul id="menu_vert">
+        <li>-------------</li>
+        <li><%= link_to 'Adminbereich', :controller => 'admin', :action => 'index' %></li>
+              <li><%= link_to 'Logout', :controller => 'admin', :action => 'logout' %></li>
+    </ul>
+        <% end %>
+
+
+    </div>
+
+    <div id="contentarea">
+      <br />      
+      <%= yield %>
+  </div>
+
+   </div>
+
+
+
+   <div id="footer">
+   <hr style="background-color:#dbdbdb ;height:2px;width:100%; text-align:left;">
+      <div id="footer_cr">
+  &copy; 2010 TC Freigericht e.V
+  <br/>
+      </div>
+      <br/>
+      <div style="text-align: center; font-size: 10px;">
+  Website wurde erstellt mit Ruby on Rails. <br/>
+  Kontaktieren Sie den Webmaster bei Fragen oder Anregungen.
+      </div>
+   </div>
+  <br/>
+  </div>
+
+ </body>
+
+</html>
+</html>
