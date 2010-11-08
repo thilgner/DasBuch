@@ -23,9 +23,16 @@
   <div id="box">
 
   
-  </div>
+ 
 
   <div id="linksHeader">
+    
+    <% if !session[:user_id] %>
+      
+    
+    <%= link_to 'Newsletter', :controller => 'home', :action => 'index' %> |
+    <%= link_to 'Kundenkonto', :controller => 'home', :action => 'index' %>
+    <% end %>
   </div>
 
    <div id="header">
