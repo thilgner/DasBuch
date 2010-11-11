@@ -1,0 +1,106 @@
+#menu_vert {
+list-style: none;
+width: 150px;
+height: 130px;
+padding-top: 15px;
+padding-left: 30px;
+/*background: url(/images/background.png) no-repeat;*/
+}
+#menu_vert ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#menu_vert a{
+color: #000000;
+font-family: Trebuchet MS;
+font-size: 11px;
+display:block;
+text-decoration: none;
+padding: 8px 0 0 0px;
+font-weight:normal;
+}
+
+#menu_vert a:visited{
+}
+
+#menu_vert a:hover{
+color: #595959;
+/* background-color: #fff4e8; */
+}
+
+#menu_vert a:active{
+color: #dbdbdb;
+}
+
+/*
+#menu_horiz {
+list-style: none;
+width: 650px;
+height: 270px;
+padding-top: 5px;
+/*background: url(/images/background.png) no-repeat;
+}
+
+#menu_horiz ul{
+	list-style: none;
+	padding: 0px;
+}
+
+#menu_horiz li{	
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+color: #000000;
+font-family: Trebuchet MS;
+font-size: 11px;
+text-decoration: none;
+}
+
+#menu_horiz a{
+	background-color: #fff4e8;
+	color: #000000;
+	text-decoration: none;
+}
+
+#menu_horiz li{
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+}
+
+#mednu_horiz a{
+color: #000000;
+font-family: Trebuchet MS;
+font-size: 11px;
+display: block;
+text-decoration: none;
+padding: 8px 0 0 0px;
+font-weight:normal;
+}
+
+#dmenu_horiz a:visited{
+}
+
+#menu_horiz a:hover{
+color: #595959;
+}
+
+#menu_horiz a:active{
+color: #dbdbdb;
+}
+
+#menu_horiz li a.active, .menu li a.active:hover{
+	color: #000000;	
+	background-color: #ffffff;
+}*/
+
+.menu_horiz{margin:0 auto; padding:0; height:30px; width:100%; display:block; background:url('/images/topMenuImages.png') repeat-x;}
+.menu_horiz li{padding:0; margin:0; list-style:none; display:inline;}
+.menu_horiz li a{float:left; padding-left:15px; display:block; color:rgb(0,0,0); text-decoration:none; font:12px Trebuchet MS;; cursor:pointer; background:url('/images/topMenuImages.png') 0px -30px no-repeat;}
+.menu_horiz li a span{line-height:30px; float:left; display:block; padding-right:15px; background:url('/images/topMenuImages.png') 100% -30px no-repeat;}
+.menu_horiz li a:hover{background-position:0px -60px; color:rgb(89,89,89);}
+.menu_horiz li a:hover span{background-position:100% -60px;}
+.menu_horiz li a.active, .menu_horiz li a.active:hover{line-height:30px; font:12px font-family: Trebuchet MS;; background:url('/images/topMenuImages.png') 0px -90px no-repeat; color:rgb(0,0,0);}
+.menu_horiz li a.active span, .menu_horiz li a.active:hover span{background:url('/images/topMenuImages.png') 100% -90px no-repeat;}
