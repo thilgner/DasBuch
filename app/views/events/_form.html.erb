@@ -11,23 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <table cellspacing="10" cellpadding="0">
+			<tr>
+		    	<td style="width: 500px;"><b>Beschreibung:</b> <%= f.text_field :title %></td>
+		  	</tr>
+        <tr>
+            <td style="width: 500px;"><b>Datum:</b> <%= f.text_field :date, :id => 'datepicker', :size => 10 %></td>
+        </tr>
+		  	<tr>
+		    	<td style="width: 500px;"><%= f.text_area :content, :class => "mceEditor" %></td>
+		  	</tr>
+			<tr>
+		    	<td style="width: 500px; text-align: right;"><%= f.submit 'Bearbeiten/Hinzufügen' %></td>
+		  	</tr>
+	</table>
 <% end %>

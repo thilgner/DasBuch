@@ -12,6 +12,7 @@ body {
     text-decoration: none;
     height: 100%;
     background-color: #435956;
+    overflow: scroll;
 }
 
 h1 { font-size: 175%; font-weight: bold;}
@@ -61,14 +62,17 @@ background:url(/images/logo2.png) no-repeat scroll 0 0 transparent ;
 
 #navigation {
 	height: 30px;
-	background-color: #fff4e8;
+	background-color: white;
+    margin-left: auto ;
+    margin-right: auto ;
 }
 
 #navigation_links{
-	width: 81.25%;
+	width: 650px;
 	font-size: 14px;
 	color: #000000;
-	float: right;
+	margin-left: auto ;
+    margin-right: auto ;
 }
 
 #content {

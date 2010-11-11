@@ -1,4 +1,16 @@
 class EventsController < ApplicationController
+
+  uses_tiny_mce :options => {
+                              :theme => 'advanced',
+                              :theme_advanced_toolbar_location => 'top',
+                              :theme_advanced_toolbar_align => 'left',
+                              :theme_advanced_resizing => true,
+                              :theme_advanced_resize_horizontal => false,
+                              :width => '980px',
+                              :height => '500px',
+                              :plugins => %w{ table fullscreen }
+                            }
+
   # GET /events
   # GET /events.xml
   def index

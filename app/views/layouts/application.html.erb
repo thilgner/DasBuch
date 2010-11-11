@@ -1,73 +1,235 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= @title %></title>
     <%= stylesheet_link_tag :all %>
-    <%= javascript_include_tag :all %>
+    <%= javascript_include_tag :defaults %>
+    <%= include_tiny_mce_if_needed %>
     <%= csrf_meta_tag %>
 
-  </head>
-  <body>
-    <noscript>
-      <div>
+    <script type="text/javascript">
+        $(function() {
+
+            $("#Link_infoBox").mouseover(function() {
+                $("#infoBox").dialog({
+                    closeOnEscape: true,
+                    resizable: false,
+                    position: 'center',
+                    height: 'auto',
+                    width: 'auto',
+                    maxHeight: 500,
+                    modal: true
+                })
+                return false;
+            });
+
+            $("#dialog").dialog("destroy");
+            $("#logout-message").dialog({
+                resizable: false,
+                position: 'center',
+                modal: true
+            });
+
+            $("#dialog-message").dialog({
+                resizable: false,
+                height:120,
+                position: 'center',
+                modal: true,
+                buttons: {
+                    Weiter: function() {
+                        $(this).dialog('close');
+                        window.location.href = '/admin';
+                    }
+                }
+            });
+
+            $("#dialog-message_nolink").dialog({
+                resizable: false,
+                height:120,
+                position: 'center',
+                modal: true,
+                buttons: {
+                    OK: function() {
+                        $(this).dialog('close');
+                    }
+                }
+            });
+
+            $("#datepicker").datepicker({ dateFormat: 'dd-mm-yy' });
+            $("#datepicker1").datepicker({ dateFormat: 'dd-mm-yy' });
+            // add drag functionalty to login window
+            $("#login").draggable();
+            $("#tabs").tabs();
+            $("#tabs1").tabs();
+
+            $("#Link_Login").mouseover(function() {
+                $("#login_modal").dialog({
+                    resizable: false,
+                    position: 'center',
+                    height:140,
+                    modal: true
+                })
+                return false;
+            });
+
+            $("#Link_changeImage").click(function() {
+                $("#Image_modal").dialog({
+                    resizable: false,
+                    position: 'center',
+                    height:300,
+                    width:500,
+                    modal: true
+                })
+                return false;
+            });
+
+            $("#Link_addPlayer").click(function() {
+                $("#Player_modal").dialog({
+                    resizable: false,
+                    position: 'center',
+                    height:200,
+                    width:300,
+                    modal: true
+                })
+                return false;
+            });
+
+            $("#Link_addCategory").click(function() {
+                $("#Category_modal").dialog({
+                    resizable: false,
+                    position: 'center',
+                    height:200,
+                    width:350,
+                    modal: true
+                })
+                return false;
+            });
+
+            $("#Link_addSubCategory").click(function() {
+                $("#SubCategory_modal").dialog({
+                    resizable: false,
+                    position: 'center',
+                    height:200,
+                    width:350,
+                    modal: true
+                })
+                return false;
+            });
+
+            function showDraggable() {
+                var options = {};
+                //run the effect
+                $("#login").toggle();
+            }
+
+            ;
+
+            function runEffect() {
+                //most effect types need no options passed by default
+                var options = {};
+                //run the effect
+                $("#appointments").toggle('blind', options, 500);
+            }
+
+            ;
+
+            $("#Link_appointments").click(function() {
+                runEffect();
+                return false;
+            });
+
+            function runEffect1() {
+                //most effect types need no options passed by default
+                var options = {};
+                //run the effect
+                $("#announcements").toggle('blind', options, 500);
+            }
+
+            ;
+
+            $("#Link_announcements").click(function() {
+                runEffect1();
+                return false;
+            });
+        });
+    </script>
+
+</head>
+<body>
+<noscript>
+    <div>
         <table cellspacing="0" cellpadding="0" width="100%" style="text-align: center; background-color: #cf0513; color: white;">
-          <tbody>
+            <tbody>
             <tr>
-              <td style="width: 100%; font-size: 13px;">JavaScript ist nicht aktiviert. Bitte aktivieren Sie JavaScript in ihren Browsereinstellungen.</td>
+                <td style="width: 100%; font-size: 13px;">JavaScript ist nicht aktiviert. Bitte aktivieren Sie
+                    JavaScript in ihren Browsereinstellungen.
+                </td>
             </tr>
-          </tbody>
+            </tbody>
         </table>
-      </div>
-    </noscript>
-    <div id="box">
-      <br/>
-      <div id="linksHeader">
+    </div>
+</noscript>
+<div id="box">
+    <br/>
 
-        <%if !session[:user_id] %>
+    <div id="linksHeader">
 
-        <%= link_to 'Newsletter', :controller => 'home', :action => 'index' %> |
-        <%= link_to 'Kundenkonto', :controller => 'home', :action => 'index' %>
-        <%end %>
-      </div>
-      <div id="header">
-      </div>
-      <div id="navigation">
-      </div>
-      <div id="content">
+        <% if !session[:user_id] %>
+            <%= link_to 'Login', :controller => 'home', :action => 'index' %> |
+            <%= link_to 'Newsletter', :controller => 'home', :action => 'index' %> |
+            <%= link_to 'Kundenkonto', :controller => 'home', :action => 'index' %>
+        <% end %>
+    </div>
+    <div id="header">
+    </div>
+    <div id="navigation">
+        <div id="navigation_links">
+
+            <ul class="menu_horiz">
+                <li><a href="/" class="<%= @activeVar1 %>"><span>Buchkatalog</span></a></li>
+                <li><a href="/tennis/teams" class="<%= @activeVar2 %>"><span>Über Uns</span></a></li>
+                <li><a href="/kontakt" class="<%= @activeVar3 %>"><span>Veranstaltungen</span></a></li>
+                <li><a href="/kontakt" class="<%= @activeVar3 %>"><span>Kindervorlesestunde</span></a></li>
+                <li><a href="/kontakt" class="<%= @activeVar3 %>"><span>Warenkorb</span></a></li>
+                <li><a href="/kontakt" class="<%= @activeVar3 %>"><span>Impressum</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
         <%= yield %>
-      </div>
-      <div id="footer">
+    </div>
+    <div id="footer">
         <hr style="background-color: #435956; border: hidden; height:2px;width:1000px; text-align:left;">
         <div id="footer_cr">
-          &copy; 2010 Buchhandlung DAS BUCH
-          <br/>
+            &copy; 2010 Buchhandlung DAS BUCH
+            <br/>
         </div>
         <div style="text-align: center; font-size: 12px; color: #435956">
-          <table class="centered" border="0" cellpadding="5" cellspacing="5">
-            <tbody>
-              <tr>
-                <td class="ARight">ALZENAU
-                <br>Friedberger Gässchen 5
-                <br>63755 Alzenau
-                <br>Tel. 0 60 23 / 917 908 Fax 0 60 23 / 917 909
-                <br>e-mail: info@das-buch-alzenau.de
-                <br>http://www.das-buch-alzenau.de
-                <br></td>
-                <td class="ALeft">FREIGERICHT
-                <br>Hanauer Straße 7
-                <br>63579 Freigericht
-                <br>Tel. 060 55 / 23 92 Fax 0 60 55 / 8 33 91
-                <br>e-mail: info@das-buch-freigericht.de
-                <br>http://www.das-buch-freigericht.de
-                <br></td>
-              </tr>
-            </tbody>
-          </table>
-          <br/>
+            <table class="centered" border="0" cellpadding="5" cellspacing="5">
+                <tbody>
+                <tr>
+                    <td class="ARight">ALZENAU
+                        <br>Friedberger Gässchen 5
+                        <br>63755 Alzenau
+                        <br>Tel. 0 60 23 / 917 908 Fax 0 60 23 / 917 909
+                        <br>e-mail: info@das-buch-alzenau.de
+                        <br>http://www.das-buch-alzenau.de
+                        <br></td>
+                    <td class="ALeft">FREIGERICHT
+                        <br>Hanauer Straße 7
+                        <br>63579 Freigericht
+                        <br>Tel. 060 55 / 23 92 Fax 0 60 55 / 8 33 91
+                        <br>e-mail: info@das-buch-freigericht.de
+                        <br>http://www.das-buch-freigericht.de
+                        <br></td>
+                </tr>
+                </tbody>
+            </table>
+            <br/>
         </div>
-      </div>
-      <br/>
     </div>
-  </body>
+    <br/>
+</div>
+</body>
 </html>
 </html>
