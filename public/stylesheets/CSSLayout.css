@@ -11,6 +11,7 @@ body {
     text-align: left;
     text-decoration: none;
     height: 100%;
+    background-color: #435956;
 }
 
 h1 { font-size: 175%; font-weight: bold;}
@@ -22,9 +23,10 @@ h1 { font-size: 175%; font-weight: bold;}
 }
 
 #linksHeader{
+  background-color: white;
 	height: 20px;
 	text-align: right;
-	margin-right: 5px;
+	/*margin-right: 5px;*/
 	text-decoration: none;
 }
 
@@ -35,9 +37,9 @@ h1 { font-size: 175%; font-weight: bold;}
 }
 
 #header {
-  height: 160px;
+  height: 115px;
   text-decoration: none;
-  background-image: url(/images/testLogo_rund2.png);
+  background-image: url(../images/test.gif);
 }
 
 #menuHeader{
@@ -53,9 +55,9 @@ text-indent:-9999px;
 width:140px;
 }
 
-#header h1 a {
+/*#header h1 a {
 background:url(/images/logo2.png) no-repeat scroll 0 0 transparent ;
-}
+}*/
 
 #navigation {
 	height: 30px;
@@ -70,6 +72,7 @@ background:url(/images/logo2.png) no-repeat scroll 0 0 transparent ;
 }
 
 #content {
+    background-color: white;
 	min-height: 500px; /* Mindesthöhe in modernen Browsern */
 	height: auto !important; /* !important-Regel für moderne Browser */
 	height: 100%; /* Mindesthöhe in IE (<7) */
@@ -134,14 +137,15 @@ legend {
 #footer {
   background-color: #ffffff;  
   vertical-align: top;
-  bottom: 0; 
+  bottom: 0;
 }
 
 #footer_cr{
-  background-color: #fff4e8;
   text-align: right;
   vertical-align: top;
-  bottom: 0; 
+  bottom: 0;
+  font-size: 11px;
+  color: #435956;
 }
 
 #replaced img{
@@ -157,6 +161,22 @@ legend {
   text-align: center;
   border: 1px;
 }
+
+.centered {
+    margin: 0px auto;
+}
+
+
+.ARight {
+    text-align: right;
+    font-family: Arial;
+}
+
+.ALeft {
+    text-align: left;
+    font-family: Arial;
+}
+
 
 /*.menu{margin:0 auto; padding:0; height:30px; display:block; background:url('../images/topMenuImages.png') repeat-x;}
 .menu li{padding:0; margin:0; list-style:none; display:inline;}

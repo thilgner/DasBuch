@@ -1,71 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DASBUCH</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :all %>
-  <%= csrf_meta_tag %>
-  
+  <head>
+    <title><%= @title %></title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :all %>
+    <%= csrf_meta_tag %>
 
-  
-</head>
-<body>
-  <noscript>
-    <div>
-      <table cellspacing="0" cellpadding="0" width="100%" style="text-align: center; background-color: #cf0513; color: white;">
-    <tbody>
-      <tr>      
-        <td style="width: 100%; font-size: 13px;">JavaScript ist nicht aktiviert. Bitte aktivieren Sie JavaScript in ihren Browsereinstellungen.</td>
-    </tr>
-    </tbody></table>
-    </div>
-  </noscript>
-  <div id="box">
+  </head>
+  <body>
+    <noscript>
+      <div>
+        <table cellspacing="0" cellpadding="0" width="100%" style="text-align: center; background-color: #cf0513; color: white;">
+          <tbody>
+            <tr>
+              <td style="width: 100%; font-size: 13px;">JavaScript ist nicht aktiviert. Bitte aktivieren Sie JavaScript in ihren Browsereinstellungen.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </noscript>
+    <div id="box">
+      <br/>
+      <div id="linksHeader">
 
-  
- 
+        <%if !session[:user_id] %>
 
-  <div id="linksHeader">
-    
-    <% if !session[:user_id] %>
-      
-    
-    <%= link_to 'Newsletter', :controller => 'home', :action => 'index' %> |
-    <%= link_to 'Kundenkonto', :controller => 'home', :action => 'index' %>
-    <% end %>
-  </div>
-
-   <div id="header">
-
-    <h1><a href="/" title="zur Startseite">Test</a></h1>
-   </div>
-
-   <div id="navigation">
-   </div>
-
-   <div id="content">
-      <br />      
-      <%= yield %>
-   </div>
-
-
-
-   <div id="footer">
-   <hr style="background-color:#dbdbdb ;height:2px;width:100%; text-align:left;">
-      <div id="footer_cr">
-  &copy; 2010 Buchhandlung DAS BUCH
-  <br/>
+        <%= link_to 'Newsletter', :controller => 'home', :action => 'index' %> |
+        <%= link_to 'Kundenkonto', :controller => 'home', :action => 'index' %>
+        <%end %>
+      </div>
+      <div id="header">
+      </div>
+      <div id="navigation">
+      </div>
+      <div id="content">
+        <%= yield %>
+      </div>
+      <div id="footer">
+        <hr style="background-color: #435956; border: hidden; height:2px;width:1000px; text-align:left;">
+        <div id="footer_cr">
+          &copy; 2010 Buchhandlung DAS BUCH
+          <br/>
+        </div>
+        <div style="text-align: center; font-size: 12px; color: #435956">
+          <table class="centered" border="0" cellpadding="5" cellspacing="5">
+            <tbody>
+              <tr>
+                <td class="ARight">ALZENAU
+                <br>Friedberger Gässchen 5
+                <br>63755 Alzenau
+                <br>Tel. 0 60 23 / 917 908 Fax 0 60 23 / 917 909
+                <br>e-mail: info@das-buch-alzenau.de
+                <br>http://www.das-buch-alzenau.de
+                <br></td>
+                <td class="ALeft">FREIGERICHT
+                <br>Hanauer Straße 7
+                <br>63579 Freigericht
+                <br>Tel. 060 55 / 23 92 Fax 0 60 55 / 8 33 91
+                <br>e-mail: info@das-buch-freigericht.de
+                <br>http://www.das-buch-freigericht.de
+                <br></td>
+              </tr>
+            </tbody>
+          </table>
+          <br/>
+        </div>
       </div>
       <br/>
-      <div style="text-align: center; font-size: 10px;">
-  Website wurde erstellt mit Ruby on Rails. <br/>
-  Kontaktieren Sie den Webmaster bei Fragen oder Anregungen.
-      </div>
-   </div>
-  <br/>
-  </div>
-
- </body>
-
+    </div>
+  </body>
 </html>
 </html>
